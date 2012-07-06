@@ -36,8 +36,9 @@ a:hover{
   background: #ccc;
   font-family: "Lucida Grande", "Lucida Sans Unicode", Geneva, sans-serif;
   position: relative;
-  left: 5%;
-  overflow-x: scroll;
+  left: 2%;
+  overflow: scroll;
+  max-height: 500px;
 }
 
 .del{

@@ -51,6 +51,21 @@
             })
         }
       
+      function ajaxsend(idfrom, uri, idto)
+        {
+          reqwest(
+            {
+                url: uri
+              , type: 'html'
+              , method: 'post'
+              , data: { data: document.getElementById(idfrom).value }
+              , success: function (resp)
+                  {
+                    document.getElementById(idto).value = resp
+                  }
+            })
+        }
+      
       function deleteinnerHTML(id)
         {
           document.getElementById(id).innerHTML = "<br><br>";
@@ -121,5 +136,14 @@
     <br><br>
   </div>
   <a href="javascript://" class="test" onclick="ajaxreqwest('data.php?lorem=ipsum', 'content4');"> </a>
+  
+  <h2>Example 5:</h2>
+  <a href="javascript://" class="del" onclick="deleteinnerHTML('content5')">x</a>
+  <textarea cols="50" rows="20" id="content5" class="content" style="resize: none;">
+    
+    here, the content will be inserted.
+    <br><br>
+  </textarea><br>
+  <a href="javascript://" class="test" onclick="ajaxsend('content5', 'data.php', 'content5');"> </a>
 </body>
 </html>

@@ -1,6 +1,30 @@
-# It's AJAX
+#reqwest
 
-All over again.
+A small, easy to use, open AJAX lib
+
+###Version:
+05/2012
+
+###Size:
+Normal: 11KB  
+Minified: 6KB
+
+###you can use it under the terms of:
+MIT license
+
+###the following Browser are supported:
+IE6+  
+Chrome 1+  
+Safari 3+  
+Firefox 1+  
+Opera
+
+###this is a project from:
+Original: Dustin Diaz  
+this fork: Simon Waldherr
+
+###Demo:
+[simon.waldherr.eu/projects/reqwest/](http://cdn.simon.waldherr.eu/projects/reqwest/)
 
 The happs
 ---------
@@ -103,101 +127,6 @@ reqwest({
       qwery('#hide-this').hide()
     }
 })
-```
-
-The Tests
----------
-    $ npm test
-
-Browser support
----------------
-  * IE6+
-  * Chrome 1+
-  * Safari 3+
-  * Firefox 1+
-  * Opera
-
-Ender Support
--------------
-Reqwest can be used as an [Ender](http://ender.no.de) module. Add it to your existing build as such:
-
-    $ ender add reqwest
-
-Use it as such:
-
-``` js
-$.ajax({ ... })
-```
-
-Serialize things:
-
-``` js
-$(form).serialize() // returns query string -> x=y&...
-$(form).serialize({type:'array'}) // returns array name/value pairs -> [ { name: x, value: y}, ... ]
-$(form).serialize({type:'map'}) // returns an object representation -> { x: y, ... }
-$(form).serializeArray()
-$.toQueryString({
-    foo: 'bar'
-  , baz: 'thunk'
-}) // returns query string -> foo=bar&baz=thunk
-```
-
-Or, get a bit fancy:
-
-``` js
-$('#myform input[name=myradios]').serialize({type:'map'})['myradios'] // get the selected value
-$('input[type=text],#specialthing').serialize() // turn any arbitrary set of form elements into a query string
-```
-
-jQuery and Zepto Compatibility
-------------------------------
-There are some differences between the *Reqwest way* and the
-*jQuery/Zepto way*.
-
-### method ###
-jQuery/Zepto use `type` to specify the request method while Reqwest uses
-`method` and reserves `type` for the response data type.
-
-### dataType ###
-When using jQuery/Zepto you use the `dataType` option to specify the type
-of data to expect from the server, Reqwest uses `type`. jQuery also can
-also take a space-separated list of data types to specify the request,
-response and response-conversion types but Reqwest uses the `type`
-parameter to infer the response type and leaves conversion up to you.
-
-### JSONP ###
-Reqwest also takes optional `jsonpCallback` and `jsonpCallbackName`
-options to specify the callback query-string key and the callback function
-name respectively while jQuery uses `jsonp` and `jsonpCallback` for
-these same options.
-
-
-But fear not! If you must work the jQuery/Zepto way then Reqwest has
-a wrapper that will remap these options for you:
-
-```js
-reqwest.compat({
-    url: 'path/to/data.jsonp?foo=bar'
-  , dataType: 'jsonp'
-  , jsonp: 'foo'
-  , jsonpCallback: 'bar'
-  , success: function (resp) {
-      qwery('#content').html(resp.content)
-    }
-})
-
-// or from Ender:
-
-$.ajax.compat({
-  ...
-})
-```
-
-If you want to install jQuery/Zepto compatibility mode as the default
-then simply place this snippet at the top of your code:
-
-```js
-$.ajax.compat && $.ender({ ajax: $.ajax.compat });
 ```
 
 
