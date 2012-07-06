@@ -93,6 +93,7 @@
    <p>IE6+<br>
       Chrome 1+<br>
       Safari 3+<br>
+      Mobile Safari 3+<br>
       Firefox 1+<br>
       Opera</p>
   
@@ -138,7 +139,7 @@
   <a href="javascript://" class="test" onclick="ajaxreqwest('data.php?lorem=ipsum', 'content4');"> </a>
   
   <h2>Example 5:</h2>
-  <a href="javascript://" class="del" onclick="deleteinnerHTML('content5')">x</a>
+  <a href="javascript://" class="del" onclick="document.getElementById('content5').value='';">x</a>
   <textarea cols="50" rows="20" id="content5" class="content" style="resize: none;">
     
     here, the content will be inserted.

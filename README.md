@@ -16,6 +16,7 @@ MIT license
 IE6+  
 Chrome 1+  
 Safari 3+  
+Mobile Safari 3+  
 Firefox 1+  
 Opera
 
@@ -25,14 +26,6 @@ this fork: Simon Waldherr
 
 ###Demo:
 [simon.waldherr.eu/projects/reqwest/](http://cdn.simon.waldherr.eu/projects/reqwest/)
-
-The happs
----------
-
-    $ git clone git://github.com/ded/reqwest.git reqwest
-    $ cd !$
-    $ npm install
-    $ make
 
 API
 ---------
