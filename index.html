@@ -66,6 +66,25 @@
             })
         }
       
+      function formtransmit(uri, idto)
+        {
+          reqwest(
+            {
+                url: uri
+              , type: 'html'
+              , method: 'post'
+              , data: { username: document.getElementById('username').value
+                      , password: document.getElementById('password').value
+                      , emailadr: document.getElementById('emailadr').value
+                      , birthday: document.getElementById('birthday').value
+                      }
+              , success: function (resp)
+                  {
+                    document.getElementById(idto).innerHTML = resp
+                  }
+            })
+        }
+      
       function deleteinnerHTML(id)
         {
           document.getElementById(id).innerHTML = "<br><br>";
@@ -80,7 +99,7 @@
   <p>Reqwest is a AJAX lib in Javascript</p>
   
   <h3>Version:</h3>
-  <p>05/2012</p>
+  <p>07/2012</p>
   
   <h3>Size:</h3>
   <p>Normal: 11KB<br>
@@ -137,7 +156,7 @@
     <br><br>
   </div>
   <a href="javascript://" class="test" onclick="ajaxreqwest('data.php?lorem=ipsum', 'content4');"> </a>
-  
+
   <h2>Example 5:</h2>
   <a href="javascript://" class="del" onclick="document.getElementById('content5').value='';">x</a>
   <textarea cols="50" rows="20" id="content5" class="content" style="resize: none;">
@@ -146,5 +165,23 @@
     <br><br>
   </textarea><br>
   <a href="javascript://" class="test" onclick="ajaxsend('content5', 'data.php', 'content5');"> </a>
+
+  <h2>Example 6:</h2>
+  <div id="forms">
+    
+    username: <input name="username" id="username" type="text">
+    password: <input name="password" id="password" type="text">
+    emailadr: <input name="emailadr" id="emailadr" type="text">
+    birthday: <input name="birthday" id="birthday" type="text">
+    
+  </div>
+  <a href="javascript://" class="del" onclick="deleteinnerHTML('content6')">x</a>
+  <div id="content6" class="content">
+    
+    here, the content will be inserted.
+    <br><br>
+  </div>
+  <a href="javascript://" class="test" onclick="formtransmit('data.php?validate=true', 'content6');"> </a>
+  
 </body>
 </html>

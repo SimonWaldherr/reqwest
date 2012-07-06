@@ -1,5 +1,22 @@
 <?php
 
+if($_GET['validate'] == 'true')
+  {
+    ob_start();
+    
+    echo 'Hello ';
+    readfile('http://cdn.simon.waldherr.eu/projects/validate/?type=name&data='.$_POST['username']);
+    echo "\n".'your password is ';
+    readfile('http://cdn.simon.waldherr.eu/projects/validate/?type=password&data='.$_POST['password']);
+    echo "\n".'this is your eMail-adress:  ';
+    readfile('http://cdn.simon.waldherr.eu/projects/validate/?type=email&data='.$_POST['emailadr']);
+    echo "\n".'the timestamp of your birthday is ';
+    readfile('http://cdn.simon.waldherr.eu/projects/validate/?type=date&data='.$_POST['birthday']);
+    
+    echo nl2br(ob_get_clean());
+    die();
+  }
+
 $textvar  = 'Neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit ...';
 $textvar .= rand(100, 900000);
 

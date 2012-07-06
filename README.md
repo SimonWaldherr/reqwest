@@ -3,7 +3,7 @@
 A small, easy to use, open AJAX lib
 
 ###Version:
-05/2012
+07/2012
 
 ###Size:
 Normal: 11KB  

@@ -62,6 +62,12 @@ a:hover{
   background: white;
 }
 
+#forms{
+  position: relative;
+  left: 3%;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", Geneva, sans-serif;
+}
+
 .info, p {
 padding-left: 15px;
 }
