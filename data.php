@@ -1,5 +1,15 @@
 <?php
 
+if(isset($_POST['timestamp']))
+    {
+      ob_start();
+      echo $_POST['timestamp'].' #$$$# '.'data1 = '.$_POST['data1']."\n".'data2 = '.$_POST['data2']."\n".'data3 = '.$_POST['data3']."\n".'data4 = '.$_POST['data4']."\n"."\n \n";
+      $data = nl2br(ob_get_clean());
+      echo $data.md5($data);
+      var_dump($_POST);
+      die();
+    }
+
 if($_GET['validate'] == 'true')
   {
     ob_start();
