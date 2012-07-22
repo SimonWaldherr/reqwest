@@ -1,7 +1,19 @@
 body{
-  width: 90%;
+  background: #fefefe;
+}
+
+#container{
+  position: relative;
+  top: 35px;
+  width: 86%;
   background: #eee;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  margin: auto;
+  padding: 25px 25px 50px 25px;
+  -webkit-box-shadow: 4px 11px 55px 5px rgba(44, 44, 44, 1);
+  box-shadow: 0px 5px 65px -10px rgba(33, 33, 33, 1);
+  border-radius: 45px 45px 5px 5px;
+  margin-bottom: 75px;
 }
 
 h3{
@@ -56,10 +68,12 @@ a:hover{
 }
 
 #info{
-  width: 90%;
   margin: auto;
   padding: 5px 0px 10px 60px;
   background: white;
+  border-radius: 25px 25px 0px 0px;
+  -webkit-box-shadow: inset 0px 5px 45px -15px rgba(33, 33, 33, 1);
+  box-shadow: inset 0px 5px 45px -15px rgba(33, 33, 33, 1);
 }
 
 #forms{
