@@ -1,0 +1,87 @@
+body{
+  color: #060606;
+  background: #fcfcfc;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+}
+
+.roundborder{
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.boxes{
+  position: relative;
+  top: 32px;
+  width: 300px;
+  text-align: center;
+  background: #ccc;
+  margin: auto;
+  padding: 15px;
+}
+
+.boxes ul{
+  list-style: none;
+  padding-left: 2px;
+}
+
+.boxes li {
+  //margin: 5px;
+}
+
+.boxes label{
+  position: relative;
+  width: 114px;
+  display: inline-block;
+}
+
+.boxes input{
+  width: 160px;
+  font-size: larger;
+}
+
+.spacing{
+  position: relative;
+  height: 20px;
+}
+
+.submitbutton{
+  background: #888;
+  width: 140px;
+  margin: 14px auto 14px auto;
+  font-size: larger;
+  padding: 5px;
+}
+
+#saltdiv{
+  display: none;
+  visibility: hidden;
+}
+
+#box{
+  position: relative;
+  top: 50px;
+  width: 400px;
+  height: 480px;
+  margin: 5px auto 100px auto;
+  padding: 10px;
+  background: #ddd;
+  -webkit-box-shadow: 0px 5px 15px 1px rgba(115, 115, 115, 1);
+  box-shadow: 0px 5px 15px 1px rgba(115, 115, 115, 1);
+}
+
+#boxinbox{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  -webkit-box-shadow: inset 0px 5px 15px 1px rgba(115, 115, 115, 1);
+  box-shadow: inset 0px 5px 15px 1px rgba(115, 115, 115, 1);
+}
+
+#loginbox{
+  
+}
+
+#signupbox{
+  
+}
