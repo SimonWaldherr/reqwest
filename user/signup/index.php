@@ -1,5 +1,6 @@
 <?php
 
+Header('X-Powered-By:0xBADCAB1E');
 include './../../repos/easySQL/easysql_sqlite.php';
 include './../../repos/easySQL/crypto.php';
 
