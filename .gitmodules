@@ -4,3 +4,6 @@
 [submodule "repos/jsHashes"]
 	path = repos/jsHashes
 	url = git://github.com/h2non/jsHashes.git
+[submodule "repos/FormMate"]
+	path = repos/FormMate
+	url = https://github.com/SimonWaldherr/FormMate.git

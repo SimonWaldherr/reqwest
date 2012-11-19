@@ -12,16 +12,25 @@ if(isset($_POST['timestamp']))
 
 if($_GET['validate'] == 'true')
   {
+    include('./repos/FormMate/validate/formmate.php');
     ob_start();
     
     echo 'Hello ';
-    readfile('http://cdn.simon.waldherr.eu/projects/validate/?type=name&data='.$_POST['username']);
+    echo fm_converttxt($_POST['username']);
     echo "\n".'your password is ';
-    readfile('http://cdn.simon.waldherr.eu/projects/validate/?type=password&data='.$_POST['password']);
+    if(fm_password($_POST['password'])>640)
+      {
+        echo md5(fm_hashmix($_POST['password'], $salt='!Sc&§5GalShQ9e!1', $rounds=5123));
+      }
+    else
+      {
+        echo 'insecure';
+      }
+    
     echo "\n".'this is your eMail-adress:  ';
-    readfile('http://cdn.simon.waldherr.eu/projects/validate/?type=email&data='.$_POST['emailadr']);
+    echo fm_email($_POST['emailadr'], 1);
     echo "\n".'the timestamp of your birthday is ';
-    readfile('http://cdn.simon.waldherr.eu/projects/validate/?type=date&data='.$_POST['birthday']);
+    echo fm_since(strtotime($_POST['birthday']), 'sec');
     
     echo nl2br(ob_get_clean());
     die();
