@@ -1,9 +1,3 @@
-/*!
-  * Reqwest! A general purpose XHR connection manager
-  * (c) Dustin Diaz 2011
-  * https://github.com/ded/reqwest
-  * license MIT
-  */
 !function (name, definition) {
   if (typeof module != 'undefined') module.exports = definition()
   else if (typeof define == 'function' && define.amd) define(name, definition)
@@ -175,12 +169,6 @@
     this.timeout = null
     var type = o.type || setType(this.url)
       , self = this
-      , fulfillmentHandlers = []
-      , errorHandlers = []
-      , completeHandlers = []
-      , fulfilled = false
-      , erred = false
-      , responseArgs = {}
     fn = fn || function () {}
 
     if (o.timeout) {
@@ -189,58 +177,10 @@
       }, o.timeout)
     }
 
-    if (o.success) {
-      fulfillmentHandlers.push(function () {
-        o.success.apply(o, arguments)
-      })
-    }
-    if (o.error) {
-      errorHandlers.push(function () {
-        o.error.apply(o, arguments)
-      })
-    }
-    if (o.complete) {
-      completeHandlers.push(function () {
-        o.complete.apply(o, arguments)
-      })
-    }
-
-    this.then = function (fulfillmentHandler, errorHandler) {
-      if (fulfilled) {
-        fulfillmentHandler(responseArgs.resp)
-      } else if (erred) {
-        errorHandler(responseArgs.resp, responseArgs.msg, responseArgs.t)
-      } else {
-        fulfillmentHandlers.push(fulfillmentHandler)
-        errorHandlers.push(errorHandler)
-      }
-      return this
-    }
-
-    this.fail = function (errorHandler) {
-      if (erred) {
-        errorHandler(responseArgs.resp, responseArgs.msg, responseArgs.t)
-      } else {
-        errorHandlers.push(errorHandler)
-      }
-      return this
-    }
-
-    this.always = function (completeHandler) {
-      if (fulfilled || erred) {
-        completeHandler(responseArgs.resp)
-      } else {
-        completeHandlers.push(completeHandler)
-      }
-      return this
-    }
-
     function complete(resp) {
       o.timeout && clearTimeout(self.timeout)
       self.timeout = null
-      while (completeHandlers.length > 0) {
-        completeHandlers.shift()(resp)
-      }
+      o.complete && o.complete(resp)
     }
 
     function success(resp) {
@@ -266,24 +206,14 @@
         }
       }
 
-      responseArgs.resp = resp
-      fulfilled = true
-
       fn(resp)
-      while (fulfillmentHandlers.length > 0) {
-        fulfillmentHandlers.shift()(resp)
-      }
+      o.success && o.success(resp)
+
       complete(resp)
     }
 
     function error(resp, msg, t) {
-      responseArgs.resp = resp
-      responseArgs.msg = msg
-      responseArgs.t = t
-      erred = true
-      while (errorHandlers.length > 0) {
-        errorHandlers.shift()(resp, msg, t)
-      }
+      o.error && o.error(resp, msg, t)
       complete(resp)
     }
 
